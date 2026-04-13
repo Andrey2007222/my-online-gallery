@@ -21,7 +21,7 @@ async def lifespan(app: FastAPI):
             print(f"📚 В базе уже есть {count} картин")
     yield
 
-# СОЗДАЕМ ПРИЛОЖЕНИЕ - ЭТО ВАЖНО!
+
 app = FastAPI(lifespan=lifespan, title="ArtSpace Галерея")
 
 UPLOAD_DIR = Path("paintings")
@@ -31,7 +31,7 @@ UPLOAD_DIR.mkdir(exist_ok=True)
 async def root(request: Request):
     images = get_all_images()
     
-    # Получаем уникальных художников
+
     artists = sorted(set(img.artist for img in images if img.artist))
     years = sorted(set(img.year for img in images if img.year), reverse=True)
     
@@ -405,10 +405,10 @@ async def root(request: Request):
                     body: formData
                 });
                 if (response.ok) {
-                    alert('✅ Шедевр добавлен!');
+                    alert('Шедевр добавлен!');
                     location.reload();
                 } else {
-                    alert('❌ Ошибка');
+                    alert('Ошибка');
                 }
             }
             

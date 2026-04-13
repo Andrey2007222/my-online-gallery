@@ -6,7 +6,6 @@ from app.db import Image, get_image, get_all_images, get_images_by_artist, Sessi
 PAINTINGS_DIR = Path('paintings')
 
 def get_paintings_info():
-    """Информация о картинах для автозаполнения базы данных"""
     return {
         "Звездная ночь": {
             "artist": "Винсент Ван Гог",
